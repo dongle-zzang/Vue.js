@@ -77,12 +77,17 @@
       modalEdit(){ //수정 완료하고 버튼 누를 때
         if(!this.editTodoItem) alert('Enter Your New Todo.');
         else if(this.editTodoItem) { //수정하고 로컬스토리지에 업데이트, input창 초기화
-            localStorage.removeItem(this.oriText);
-            localStorage.setItem(this.editTodoItem, this.editTodoItem);
-            this.$parent.updateList(); // screen에 찍어내는 역할
-            this.modal = false;
-            console.log(`Edited to '${this.editTodoItem}'.`);
-          }
+            if(this.editTodoItem == this.oriText){
+              alert(`There is already '${this.editTodoItem}' in your list.
+Please enter again your todo.`);
+            }
+            else{
+              localStorage.removeItem(this.oriText);
+              localStorage.setItem(this.editTodoItem, this.editTodoItem);
+              this.$parent.updateList(); // screen에 찍어내는 역할
+              this.modal = false;
+              console.log(`Edited to '${this.editTodoItem}'.`);
+            }
         },
         inputReset(){
         this.editTodoItem = ''; //input reset
