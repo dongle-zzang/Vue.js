@@ -1,4 +1,4 @@
-# vuetify-project
+# Vue `$emit`
 
 ## ✨목표
-배달의민족 앱 레이아웃 따라잡기
+`$emit` 확실하게 이해하기 
